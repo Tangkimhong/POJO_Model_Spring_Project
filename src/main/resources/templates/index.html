@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="u : ${users}">
+            <td th:text="${u.getId()}"></td>
+            <td th:text="${u.getName()}"></td>
+            <td th:text="${u.getGender()}"></td>
+            <td>
+                <a th:href="@{/users/one/{user_id}(user_id=${u.getId()})}">View</a>
+                <a href="#">Update</a>
+                <a href="#">Delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
