@@ -1,7 +1,10 @@
 package com.example.demopojo.models;
 
+import org.springframework.lang.NonNull;
+
 public class User {
 
+    @NonNull
     private Integer id;
     private String name;
     private String gender;

@@ -25,7 +25,17 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public void Save(User user) {
+    public boolean Save(User user) {
+        return userRepository.save(user);
+    }
 
+    @Override
+    public boolean update(User user) {
+        return userRepository.update(user);
+    }
+
+    @Override
+    public boolean delete(Integer id) {
+        return userRepository.delete(id);
     }
 }

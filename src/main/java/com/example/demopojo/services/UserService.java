@@ -11,5 +11,9 @@ public interface UserService {
 
     User getOne(Integer id);
 
-    void Save(User user);
+    boolean Save(User user);
+
+    boolean update(User user);
+
+    boolean delete(Integer id);
 }

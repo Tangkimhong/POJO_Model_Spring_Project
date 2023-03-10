@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $('.btn-delete').on('click',function (){
+                var userId = $(this).attr('data-id');
+                if (confirm("Do you want to delete?")){
+                    window.location = 'http://localhost:8080/users/delete/' + userId;
+                };
+            });
+        });
+    </script>
 </head>
 <body>
+<a th:href="@{/users/add}">Add User</a>
     <table border="1">
         <tr>
             <th>ID</th>
@@ -18,8 +30,8 @@
             <td th:text="${u.getGender()}"></td>
             <td>
                 <a th:href="@{/users/one/{user_id}(user_id=${u.getId()})}">View</a>
-                <a href="#">Update</a>
-                <a href="#">Delete</a>
+                <a th:href="@{/users/update/{user_id}(user_id=${u.getId()})}">Update</a>
+                <button th:attr="data-id=${u.getId()}"  class="btn-delete">Delete</button>
             </td>
         </tr>
     </table>
