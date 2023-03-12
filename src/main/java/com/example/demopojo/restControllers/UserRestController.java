@@ -16,6 +16,9 @@ public class UserRestController {
         this.userService = userService;
     }
 
+    @RequestMapping(value = "/{user_id}", method = RequestMethod.GET)
+    public User getOne(@PathVariable("user_id") Integer id){ return userService.getOne(id);}
+
     @RequestMapping( value = "", method = RequestMethod.GET)
     public List<User> getAll(){
         return userService.getAll();
